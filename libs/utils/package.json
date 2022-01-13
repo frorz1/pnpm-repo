@@ -15,6 +15,10 @@
     "build:ts": "tsc -p src"
   },
   "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frorz1/pnpm-repo.git"
+  },
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/preset-env": "^7.16.8",
