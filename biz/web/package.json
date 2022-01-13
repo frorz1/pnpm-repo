@@ -8,7 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@frorz/ua": "^1.0.1",
     "@frorz/utils": "workspace:^1.0.1",
+    "axios": "^0.24.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
