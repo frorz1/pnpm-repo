@@ -73,6 +73,12 @@ pnpm解决了什么问题？
   `pnpm publish --filter pkg` - 指明要发布的包
 
 
+## 参考资料
+
+[Why should we use pnpm?](https://medium.com/pnpm/why-should-we-use-pnpm-75ca4bfe7d93)
+
+[作者主页](https://medium.com/@zoltankochan)
+
 
 
 
