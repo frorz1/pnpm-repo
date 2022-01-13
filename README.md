@@ -6,6 +6,41 @@ pnpm解决了什么问题？
 2、`NPM doppelgangers` 这个问题其实也可以说是 hoist 导致的，可能会导致有大量的依赖的被重复安装。 如A依赖util@1.0, B依赖util@2.0，则提升时并不能将两个依赖同时提升，如果都提升了，会导致冲突。所以两个版本的包里的相同的内容则会重复安装。
 
 
+pnpm 如何解决的？如：
+
+```sh
+pnpm i express -w
+```
+
+那么pnpm 安装之后，会在当前的node_modules里面生成一个express目录，但它仅仅是一个`软链接`， 实际都会指向root目录下的`node_modules/.pnpm/express@xxx/node_modules/express`, 而express的依赖项也都在`node_modules/.pnpm/express@xxx/node_modules`中。
+
+pnpm安装包的规律都是如此，如果在package.json中有依赖，就在当前package中创建软连接，而实际的包则安装在
+`/node_modules/.pnpm/<package-name>@version/node_modules/<package-name>`
+
+▾ node_modules
+  ▾ .pnpm
+    ▸ accepts@1.3.7
+    ▸ array-flatten@1.1.1
+    ...
+    ▾ express@4.17.1
+      ▾ node_modules
+        ▸ accepts
+        ▸ array-flatten
+        ▸ body-parser
+        ▸ content-disposition
+        ...
+        ▸ etag
+        ▾ express
+          ▸ lib
+            History.md
+            index.js
+            LICENSE
+            package.json
+            Readme.md
+
+> 总结一句即： 所有实体包都是平铺在.pnpm/中的，但是每一个包的依赖都是通过软链接 指向平铺的实体包。
+> 以嵌套的结构实现平铺
+
 ## Command
 
 常用命令和npm没有太大区别，所以学习成本也较低
