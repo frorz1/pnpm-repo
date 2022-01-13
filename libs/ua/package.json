@@ -1,6 +1,6 @@
 {
   "name": "@frorz/ua",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/main.js",
   "module": "lib/main.js",
