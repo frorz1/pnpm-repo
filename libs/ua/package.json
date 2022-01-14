@@ -30,6 +30,7 @@
     "vite": "^2.7.2"
   },
   "dependencies": {
-    "@frorz/utils": "workspace:^1.0.1"
+    "@frorz/utils": "workspace:^1.0.1",
+    "axios": "0.23.0"
   }
 }
